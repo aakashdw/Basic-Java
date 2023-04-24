@@ -18,11 +18,11 @@ public class BankAccount {
             System.out.println("Enter valid amount");
             return;
         }
-                    balance = balance + amount;
-        
+        balance = balance + amount;
+
     }
 
-    public void withdraw(int amount) {
+    public void withdraw(int amount) {//Method declaration
         if (amount < 0) {
             System.out.println("Enter valid amount");
             return;
