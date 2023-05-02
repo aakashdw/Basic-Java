@@ -1,9 +1,10 @@
 package hellojava;
 
+import java.util.Scanner;
+
 public class BankAccount {
 
     int account_number;
-
     String customer_name;
     int balance;
 
@@ -15,16 +16,18 @@ public class BankAccount {
 
     public void deposit(int amount) {
         if (amount <= 0) {
-            System.out.println("Enter valid amount");
+            System.out.println(" You should not deposite Rs : " + amount);
             return;
         }
         balance = balance + amount;
+        BankAccount ba1 = new BankAccount(101, "Aakash", 1000);
+        ba1.deposit(-100);
 
     }
 
     public void withdraw(int amount) {//Method declaration
-        if (amount < 0) {
-            System.out.println("Enter valid amount");
+        if (amount <= 0) {
+            System.out.println("You should not withdwar Rs : " + amount);
             return;
         }
         if (amount > balance) {
@@ -32,6 +35,9 @@ public class BankAccount {
             return;
         }
         balance = balance - amount;
+
+        BankAccount ba2 = new BankAccount(102, "Aakash", 2000);
+        ba2.withdraw(3000);
 
     }
 
@@ -45,17 +51,34 @@ public class BankAccount {
     }
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        while (true) {
 
-        BankAccount ba1 = new BankAccount(101, "Aakash", 1000);
+            System.out.println(" 0 - Exit");
+            System.out.println(" 1 - Create Account");
+            System.out.println(" 2 - Deposit");
+            System.out.println(" 3 - Withdraw ");
 
-        System.out.println(ba1);
-
-        ba1.deposit(0);
-
-        System.out.println(ba1);
-        ba1.withdraw(2000);
-        System.out.println(ba1);
-
+            int option = Integer.parseInt(input.nextLine());
+            switch(option)
+            {
+                case 0:
+                  return;
+                
+                case 1:
+                    System.out.println("Create");
+                    break;
+                 case 2:
+                    System.out.println(" Deposit");
+                    break;
+                    
+                case 3:
+                    System.out.println(" Withdraw");
+                    break;
+                default:
+                    System.out.println(" Invalid");
+                
+            }
+        }
     }
-
 }
